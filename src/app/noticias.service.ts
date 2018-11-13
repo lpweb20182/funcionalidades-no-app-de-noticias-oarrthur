@@ -26,10 +26,42 @@ export class NoticiasService {
    */
   public todas() {
     const options = this.getHeaders();
-    return this.http.get(this.API_URL, options)
+    let url = this.API_URL;    
+    return this.http.get(url, options)
       .pipe(
         tap(r => console.log(r))
       );
+  }
+  public pesquisaNoticia(param?:string){
+    const options = this.getHeaders();
+    let url = this.API_URL;
+    if(param===null){
+      alert("Não foi encontrada nenhuma notícia com esse paramêtro.")
+      return this.http.get(url, options)
+      .pipe(
+        tap(r => console.log(r))
+      );
+    }else{
+      return this.http.get(url + param + '/', options)
+      .pipe(
+        tap(r => console.log(r))
+      );
+    }
+  }
+  public ordenaNoticia(param?:string){
+    const options = this.getHeaders();
+    let url = this.API_URL;
+    if(param===null){
+      return this.http.get(url, options)
+      .pipe(
+        tap(r => console.log(r))
+      );
+    }else{
+      return this.http.get(url + param + '/', options)
+      .pipe(
+        tap(r => console.log(r))
+      );
+    }
   }
 
   private getHeaders() {

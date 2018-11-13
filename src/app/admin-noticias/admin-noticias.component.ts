@@ -15,4 +15,7 @@ export class AdminNoticiasComponent implements OnInit {
     this.noticias$ = this.service.todas();
   }
 
+  carregar() {
+    this.noticias$ = this.service.todas();
+  }
 }
