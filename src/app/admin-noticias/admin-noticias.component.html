@@ -1,0 +1,23 @@
+<div class="float-right">
+  <a routerLink="/admin/noticias/cadastrar" class="btn btn-primary">Cadastrar</a>
+</div>
+<h1>Notícias</h1>
+<hr>
+<table class="table mt-1 table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><a href="#" (click)="carregar('titulo')">Título</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let noticia of noticias$ | async">
+      <td>
+        {{noticia.id}}
+      </td>
+      <td>
+        {{noticia.titulo}}
+      </td>
+    </tr>
+  </tbody>
+</table>
